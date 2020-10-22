@@ -1,0 +1,38 @@
+﻿@using Vjezba21102020.EntityModels
+@{
+    ViewData["Title"] = "Prikaz";
+    var podaci = (List<Student>)ViewData["nekiKey"];
+}
+
+<h1>Prikaz</h1>
+<button type="button" class="btn btn-primary">Primary</button>
+<form>
+    <input name="search" />
+    <input type="submit" value="Trazi" />
+</form>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>OpstinaPrebivalista</th>
+            <th>OpstinaRodjenja</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Student s in podaci)
+        {
+        <tr>
+            <td>@s.ID</td>
+            <td>@s.Ime</td>
+            <td>@s.Prezime</td>
+            <td>@(s.OpstinaPrebivalista?.Naziv)</td>
+            <td>@(s.OpstinaRodjenja?.Naziv)</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
