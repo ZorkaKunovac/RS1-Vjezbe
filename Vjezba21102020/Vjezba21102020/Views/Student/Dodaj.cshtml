@@ -1,0 +1,37 @@
+ 
+@using Vjezba21102020.EntityModels
+@{var opstine = (List<Opstina>)ViewData["opstine"]; }
+
+<form action="/Student/Snimi">
+    <div>
+        <label>Ime</label>
+        <input name="Ime" />
+    </div>
+    <div>
+        <label>Prezime</label>
+        <input name="Prezime" />
+    </div>
+
+    <div>
+        <label>OpstinaRodjenjaID</label>
+        <select name="OpstinaRodjenjaID" >
+        @foreach (Opstina o in opstine)
+        {
+            <option value="@o.ID">@o.Naziv</option>
+        }
+        </select>
+    </div>
+
+    <div>
+        <label>OpstinaPrebivalistaID</label>
+        <select name="OpstinaPrebivalistaID">
+            @foreach (Opstina o in opstine)
+            {
+                <option value="@o.ID">@o.Naziv</option>
+            }
+        </select>
+    </div>
+
+
+    <input type="submit" value="Snimi"/>
+</form>

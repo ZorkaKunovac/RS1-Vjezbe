@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj",
         "projectName": "Vjezba21102020",
-        "projectPath": "C:\\Users\\User\\source\\repos\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\Vjezba21102020\\Vjezba21102020\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\Vjezba21102020\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

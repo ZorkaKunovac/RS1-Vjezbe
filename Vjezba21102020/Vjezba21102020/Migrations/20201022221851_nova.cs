@@ -2,7 +2,7 @@
 
 namespace Vjezba21102020.Migrations
 {
-    public partial class InicijalnaDB : Migration
+    public partial class nova : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -38,13 +38,13 @@ namespace Vjezba21102020.Migrations
                         column: x => x.OpstinaPrebivalistaID,
                         principalTable: "Opstina",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
                         name: "FK_Student_Opstina_OpstinaRodjenjaID",
                         column: x => x.OpstinaRodjenjaID,
                         principalTable: "Opstina",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(

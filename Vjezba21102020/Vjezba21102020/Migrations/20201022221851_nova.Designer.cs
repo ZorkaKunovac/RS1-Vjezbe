@@ -10,8 +10,8 @@ using Vjezba21102020.EF;
 namespace Vjezba21102020.Migrations
 {
     [DbContext(typeof(MojDbContext))]
-    [Migration("20201021121447_InicijalnaDB")]
-    partial class InicijalnaDB
+    [Migration("20201022221851_nova")]
+    partial class nova
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

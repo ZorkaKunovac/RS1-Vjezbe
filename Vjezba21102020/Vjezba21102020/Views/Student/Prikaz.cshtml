@@ -1,13 +1,14 @@
 ﻿@using Vjezba21102020.EntityModels
 @{
     ViewData["Title"] = "Prikaz";
-    var podaci = (List<Student>)ViewData["nekiKey"];
+    var studenti = (List<Student>)ViewData["studenti"];
+    var search = ViewData["search"];
 }
 
 <h1>Prikaz</h1>
-<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" onclick="window.Location='/Student/Dodaj'" class="btn btn-primary">Primary</button>
 <form>
-    <input name="search" />
+    <input name="search" value="@search"/>
     <input type="submit" value="Trazi" />
 </form>
 <table class="table table-bordered">
@@ -21,14 +22,14 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Student s in podaci)
+        @foreach (Student s in studenti)
         {
         <tr>
             <td>@s.ID</td>
             <td>@s.Ime</td>
             <td>@s.Prezime</td>
-            <td>@(s.OpstinaPrebivalista?.Naziv)</td>
-            <td>@(s.OpstinaRodjenja?.Naziv)</td>
+            <td>@(s.OpstinaPrebivalista.Naziv)</td>
+            <td>@(s.OpstinaRodjenja.Naziv)</td>
         </tr>
         }
     </tbody>

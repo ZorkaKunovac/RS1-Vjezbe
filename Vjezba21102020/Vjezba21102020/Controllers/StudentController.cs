@@ -11,15 +11,41 @@ namespace Vjezba21102020.Controllers
 {
     public class StudentController : Controller
     {
+        public IActionResult Snimi(string Ime, string Prezime, int OpstinaPrebivalistaID, int OpstinaRodjenjaID)
+        {
+            var student = new Student
+            {
+                Ime = Ime,
+                Prezime = Prezime,
+                OpstinaPrebivalistaID = OpstinaPrebivalistaID,
+                OpstinaRodjenjaID = OpstinaRodjenjaID
+            };
+            MojDbContext db = new MojDbContext();
+            db.Add(student);
+            db.SaveChanges();
+
+            return Redirect("/Student/Prikaz");
+        }
+        public IActionResult Dodaj()
+        {
+            MojDbContext mojDb = new MojDbContext();
+            List<Opstina> opstine = mojDb.Opstina
+                .OrderBy(o => o.Naziv)
+                .ToList();
+            ViewData["opstine"] = opstine;
+            return View("Dodaj");
+        }
         public IActionResult Prikaz(string search)
         {
             MojDbContext mojDb = new MojDbContext();
-            List<Student> podaci = mojDb.Student
-                .Where(s=> search=="" || search==null || (s.Ime.StartsWith(search) || s.Prezime.StartsWith(search)) )
+            List<Student> studenti = mojDb.Student
+                .Where(s=> search==null || (s.Ime +" "+ s.Prezime).StartsWith(search) || (s.Prezime + " " + s.Ime).StartsWith(search))
+                .Include("OpstinaRodjenja")
                 .Include(s=> s.OpstinaPrebivalista)
-                .Include(s => s.OpstinaRodjenja)
                 .ToList();
-            ViewData["nekiKey"] = podaci;
+            
+            ViewData["search"] = search;
+            ViewData["studenti"] = studenti;
             return View();
         }
     }
