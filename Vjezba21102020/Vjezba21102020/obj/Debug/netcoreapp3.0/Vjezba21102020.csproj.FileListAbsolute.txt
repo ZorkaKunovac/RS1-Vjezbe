@@ -300,3 +300,5 @@ C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debu
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Vjezba21102020.pdb
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Razor\Views\Student\GenerisaniDodaj.cshtml.g.cs
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Razor\Views\Student\Dodaj.cshtml.g.cs
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Vjezba21102020.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Vjezba21102020.genruntimeconfig.cache

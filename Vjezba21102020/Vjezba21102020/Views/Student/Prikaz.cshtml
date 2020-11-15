@@ -6,7 +6,7 @@
 }
 
 <h1>Prikaz</h1>
-<button type="button" onclick="window.Location='/Student/Dodaj'" class="btn btn-primary">Primary</button>
+<a href="/Student/Dodaj" type="button" class="btn btn-primary">Dodaj</a>
 <form>
     <input name="search" value="@search"/>
     <input type="submit" value="Trazi" />
@@ -19,6 +19,7 @@
             <th>Prezime</th>
             <th>OpstinaPrebivalista</th>
             <th>OpstinaRodjenja</th>
+            <th>Akcija</th>
         </tr>
     </thead>
     <tbody>
@@ -30,6 +31,7 @@
             <td>@s.Prezime</td>
             <td>@(s.OpstinaPrebivalista.Naziv)</td>
             <td>@(s.OpstinaRodjenja.Naziv)</td>
+            <td><a href="/Student/Obrisi?StudentID=@s.ID">Obrisi</a></td>
         </tr>
         }
     </tbody>

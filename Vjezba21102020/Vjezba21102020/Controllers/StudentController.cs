@@ -35,6 +35,16 @@ namespace Vjezba21102020.Controllers
             ViewData["opstine"] = opstine;
             return View("Dodaj");
         }
+        public IActionResult Obrisi(int StudentID)
+        {
+            MojDbContext db = new MojDbContext();
+            Student s = db.Student.Find(StudentID);
+            db.Remove(s);
+            db.SaveChanges();
+
+            TempData["PorukaInfo"] = "Uspjesno ste izbrisali studenta" + s.Ime;
+            return Redirect("/Student/Poruka");
+        }
         public IActionResult Prikaz(string search)
         {
             MojDbContext mojDb = new MojDbContext();
