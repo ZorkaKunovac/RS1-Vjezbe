@@ -45,6 +45,10 @@ namespace Vjezba21102020.Controllers
             TempData["PorukaInfo"] = "Uspjesno ste izbrisali studenta" + s.Ime;
             return Redirect("/Student/Poruka");
         }
+        public IActionResult Poruka()
+        {
+            return View("Poruka");
+        }
         public IActionResult Prikaz(string search)
         {
             MojDbContext mojDb = new MojDbContext();
