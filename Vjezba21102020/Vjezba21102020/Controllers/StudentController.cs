@@ -11,20 +11,28 @@ namespace Vjezba21102020.Controllers
 {
     public class StudentController : Controller
     {
-        public IActionResult Snimi(string Ime, string Prezime, int OpstinaPrebivalistaID, int OpstinaRodjenjaID)
+        public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
         {
-            var student = new Student
-            {
-                Ime = Ime,
-                Prezime = Prezime,
-                OpstinaPrebivalistaID = OpstinaPrebivalistaID,
-                OpstinaRodjenjaID = OpstinaRodjenjaID
-            };
             MojDbContext db = new MojDbContext();
-            db.Add(student);
-            db.SaveChanges();
+            Student student;
+            if (StudentID == 0)
+            {
+                student = new Student();
+                db.Add(student);
+                TempData["PorukaInfo"] = "Uspjesno ste dodali studenta " + Ime;
+            }
+            else
+            {
+                student = db.Student.Find(StudentID);
+                TempData["PorukaInfo"] = "Uspjesno ste updateovali studenta " + Ime;
+            }
+            student.Ime = Ime;
+            student.Prezime = Prezime;
+            student.OpstinaRodjenjaID = OpstinaRodjenjaID;
+            student.OpstinaPrebivalistaID = OpstinaPrebivalistaID;
 
-            return Redirect("/Student/Prikaz");
+            db.SaveChanges();
+            return Redirect("/Student/Poruka");
         }
         public IActionResult Dodaj()
         {
@@ -35,6 +43,18 @@ namespace Vjezba21102020.Controllers
             ViewData["opstine"] = opstine;
             return View("Dodaj");
         }
+        public IActionResult Uredi(int StudentID)
+        {
+            MojDbContext db = new MojDbContext();
+            List<Opstina> opstine = db.Opstina
+           .OrderBy(o => o.Naziv)
+           .ToList();
+
+            ViewData["opstine"] = opstine;
+            Student s = StudentID == 0 ? new Student() : db.Student.Find(StudentID);
+            ViewData["student"] = s;
+            return View("Uredi");
+        }
         public IActionResult Obrisi(int StudentID)
         {
             MojDbContext db = new MojDbContext();
@@ -42,7 +62,7 @@ namespace Vjezba21102020.Controllers
             db.Remove(s);
             db.SaveChanges();
 
-            TempData["PorukaInfo"] = "Uspjesno ste izbrisali studenta" + s.Ime;
+            TempData["PorukaInfo"] = "Uspjesno ste izbrisali studenta " + s.Ime;
             return Redirect("/Student/Poruka");
         }
         public IActionResult Poruka()

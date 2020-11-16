@@ -31,7 +31,10 @@
             <td>@s.Prezime</td>
             <td>@(s.OpstinaPrebivalista.Naziv)</td>
             <td>@(s.OpstinaRodjenja.Naziv)</td>
-            <td><a href="/Student/Obrisi?StudentID=@s.ID">Obrisi</a></td>
+            <td>
+                <a href="/Student/Uredi?StudentID=@s.ID">Uredi</a>
+                <a href="/Student/Obrisi?StudentID=@s.ID">Obrisi</a>
+            </td>
         </tr>
         }
     </tbody>
