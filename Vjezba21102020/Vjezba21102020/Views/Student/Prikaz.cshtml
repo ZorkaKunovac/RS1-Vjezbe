@@ -1,14 +1,18 @@
 ﻿@using Vjezba21102020.EntityModels
+@model StudentPrikazVM
+
 @{
     ViewData["Title"] = "Prikaz";
-    var studenti = (List<Student>)ViewData["studenti"];
-    var search = ViewData["search"];
+    //var studenti = (List<Student>)ViewData["studenti"];
+    //var search = ViewData["search"];
+    StudentPrikazVM m = Model;
+
 }
 
 <h1>Prikaz</h1>
 <a href="/Student/Dodaj" type="button" class="btn btn-primary">Dodaj</a>
 <form>
-    <input name="search" value="@search"/>
+    <input name="search" value="@m.search"/>
     <input type="submit" value="Trazi" />
 </form>
 <table class="table table-bordered">
@@ -23,7 +27,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (Student s in studenti)
+        @foreach (Student s in m.studenti)
         {
         <tr>
             <td>@s.ID</td>

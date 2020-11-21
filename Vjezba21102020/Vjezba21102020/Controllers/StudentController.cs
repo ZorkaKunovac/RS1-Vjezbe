@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Vjezba21102020.EF;
 using Vjezba21102020.EntityModels;
+using Vjezba21102020.Models;
 
 namespace Vjezba21102020.Controllers
 {
@@ -77,10 +78,13 @@ namespace Vjezba21102020.Controllers
                 .Include("OpstinaRodjenja")
                 .Include(s=> s.OpstinaPrebivalista)
                 .ToList();
-            
-            ViewData["search"] = search;
-            ViewData["studenti"] = studenti;
-            return View();
+
+            //ViewData["search"] = search;
+            //ViewData["studenti"] = studenti;
+            StudentPrikazVM m = new StudentPrikazVM();
+            m.studenti = studenti;
+            m.search = search;
+            return View(m);
         }
     }
 }

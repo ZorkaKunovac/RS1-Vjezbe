@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29424.173
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vjezba21102020", "Vjezba21102020\Vjezba21102020.csproj", "{981EB007-EC3F-4619-A540-C1F638096C9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vjezba21102020", "Vjezba21102020\Vjezba21102020.csproj", "{981EB007-EC3F-4619-A540-C1F638096C9E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "podaci", "podaci\podaci.csproj", "{04F3AEA5-768A-4948-8180-986D7AE8F7B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{981EB007-EC3F-4619-A540-C1F638096C9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{981EB007-EC3F-4619-A540-C1F638096C9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{981EB007-EC3F-4619-A540-C1F638096C9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04F3AEA5-768A-4948-8180-986D7AE8F7B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04F3AEA5-768A-4948-8180-986D7AE8F7B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04F3AEA5-768A-4948-8180-986D7AE8F7B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04F3AEA5-768A-4948-8180-986D7AE8F7B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
