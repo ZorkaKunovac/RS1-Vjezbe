@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using podaci.EF;
-using podaci.EntityModels;
+using Vjezba21102020.EF;
+using Vjezba21102020.EntityModels;
 using Vjezba21102020.Models;
 
 namespace Vjezba21102020.Controllers
@@ -73,10 +73,18 @@ namespace Vjezba21102020.Controllers
         public IActionResult Prikaz(string search)
         {
             MojDbContext mojDb = new MojDbContext();
-            List<Student> studenti = mojDb.Student
-                .Where(s=> search==null || (s.Ime +" "+ s.Prezime).StartsWith(search) || (s.Prezime + " " + s.Ime).StartsWith(search))
-                .Include("OpstinaRodjenja")
-                .Include(s=> s.OpstinaPrebivalista)
+            List<StudentPrikazVM.Row> studenti = mojDb.Student
+                .Where(s => search == null || (s.Ime + " " + s.Prezime).StartsWith(search) || (s.Prezime + " " + s.Ime).StartsWith(search))
+                //.Include("OpstinaRodjenja")
+                //.Include(s=> s.OpstinaPrebivalista)
+                .Select(s => new StudentPrikazVM.Row
+                {
+                    ID = s.ID,
+                    Ime = s.Ime,
+                    Prezime = s.Prezime,
+                    OpstinaPrebivalista = s.OpstinaPrebivalista.Naziv,
+                    OpstinaRodjenja = s.OpstinaRodjenja.Naziv
+                })
                 .ToList();
 
             //ViewData["search"] = search;
