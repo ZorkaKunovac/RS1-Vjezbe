@@ -1,0 +1,5 @@
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\podaci\bin\Debug\netcoreapp3.1\podaci.deps.json
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\podaci\bin\Debug\netcoreapp3.1\podaci.dll
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\podaci\obj\Debug\netcoreapp3.1\podaci.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\podaci\obj\Debug\netcoreapp3.1\podaci.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\podaci\obj\Debug\netcoreapp3.1\podaci.AssemblyInfo.cs

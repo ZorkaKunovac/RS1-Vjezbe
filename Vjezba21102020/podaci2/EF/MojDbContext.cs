@@ -1,11 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Vjezba21102020.EntityModels;
+using podaci.EntityModels;
 
-namespace Vjezba21102020.EF
+namespace podaci.EF
 {
     public class MojDbContext: DbContext
     {

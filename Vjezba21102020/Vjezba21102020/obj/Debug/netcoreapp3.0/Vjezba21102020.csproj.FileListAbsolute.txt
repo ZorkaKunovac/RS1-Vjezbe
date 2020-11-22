@@ -298,9 +298,10 @@ C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debu
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Vjezba21102020.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Vjezba21102020.dll
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Vjezba21102020.pdb
-C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Razor\Views\Student\GenerisaniDodaj.cshtml.g.cs
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Razor\Views\Student\Dodaj.cshtml.g.cs
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Vjezba21102020.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Vjezba21102020.genruntimeconfig.cache
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Razor\Views\Student\Poruka.cshtml.g.cs
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\obj\Debug\netcoreapp3.0\Razor\Views\Student\Uredi.cshtml.g.cs
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\bin\Debug\netcoreapp3.0\podaci2.dll
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Vjezba21102020\Vjezba21102020\bin\Debug\netcoreapp3.0\podaci2.pdb

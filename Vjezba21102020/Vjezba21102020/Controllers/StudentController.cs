@@ -4,8 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Vjezba21102020.EF;
-using Vjezba21102020.EntityModels;
+using podaci.EF;
+using podaci.EntityModels;
 using Vjezba21102020.Models;
 
 namespace Vjezba21102020.Controllers
