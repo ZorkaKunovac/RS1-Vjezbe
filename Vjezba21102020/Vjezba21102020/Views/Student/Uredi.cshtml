@@ -3,53 +3,33 @@
 
 @model StudentDodajVM
 
-@{ //var opstine = (List<Opstina>)ViewData["opstine"];
-                //            var student = (Student)ViewData["student"]; 
-}
+@{ 
+ }
 
-<form action="/Student/Snimi">
+<form asp-action="Snimi" asp-controller="Student">
     <div style="display:none">
         <label>StudentID</label>
-        <input name="StudentID" readonly value="@Model.ID" />
+        @*<input name="StudentID" readonly value="@Model.ID" />*@
+        <input name="StudentID" readonly asp-for="ID" />
     </div>
     <div>
         <label> Ime </label>
-        <input name="Ime" value="@Model.Ime" />
+        <input name="Ime" asp-for="Ime" />
     </div>
     <div>
         <label>Prezime</label>
-        <input name="Prezime" value="@Model.Prezime" />
+        <input name="Prezime" asp-for="Prezime" />
     </div>
     <div>
         <label>OpstinaRodjenjaID</label>
-        <select name="OpstinaRodjenjaID">
-            @foreach (ComboBoxVM o in Model.opstine)
-            {
-                if (o.ID == Model.OpstinaRodjenjaID)
-                {
-                    <option selected value="@o.ID">@o.Naziv</option> 
-                }
-                else
-                {
-                    <option value="@o.ID">@o.Naziv</option>
-                }
-            }
+        <select asp-for="OpstinaRodjenjaID" asp-items="Model.opstine">
+           
         </select>
     </div>
     <div>
         <label>OpstinaPrebivalistaID</label>
-        <select name="OpstinaPrebivalistaID">
-            @foreach (ComboBoxVM o in Model.opstine)
-            {
-                if (o.ID == Model.OpstinaPrebivalistaID)
-                {
-                    <option selected value="@o.ID">@o.Naziv</option> 
-                }
-                else
-                {
-                     <option value="@o.ID">@o.Naziv</option>
-                }
-            }
+        <select asp-for="OpstinaPrebivalistaID" asp-items="Model.opstine">
+            
         </select>
     </div>
     <div class="form-group">

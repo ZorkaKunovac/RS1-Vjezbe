@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Vjezba21102020.EF;
 using Vjezba21102020.EntityModels;
@@ -48,12 +49,12 @@ namespace Vjezba21102020.Controllers
         public IActionResult Uredi(int StudentID)
         {
             MojDbContext db = new MojDbContext();
-            List<ComboBoxVM> opstine = db.Opstina
+            List<SelectListItem> opstine = db.Opstina
            .OrderBy(o => o.Naziv)
-           .Select(o=> new ComboBoxVM 
+           .Select(o=> new SelectListItem 
            { 
-               ID=o.ID,
-               Naziv=o.Naziv
+               Value=o.ID.ToString(),
+               Text=o.Naziv
            })
            .ToList();
 

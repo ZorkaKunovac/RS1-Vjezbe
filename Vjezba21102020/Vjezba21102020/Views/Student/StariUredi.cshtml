@@ -1,0 +1,58 @@
+﻿@using Vjezba21102020.EntityModels
+@using Vjezba21102020.Helper;
+
+@model StudentDodajVM
+
+@{ //var opstine = (List<Opstina>)ViewData["opstine"];
+                //            var student = (Student)ViewData["student"]; 
+}
+
+<form action="/Student/Snimi">
+    <div style="display:none">
+        <label>StudentID</label>
+        <input name="StudentID" readonly value="@Model.ID" />
+    </div>
+    <div>
+        <label> Ime </label>
+        <input name="Ime" value="@Model.Ime" />
+    </div>
+    <div>
+        <label>Prezime</label>
+        <input name="Prezime" value="@Model.Prezime" />
+    </div>
+    <div>
+        <label>OpstinaRodjenjaID</label>
+        <select name="OpstinaRodjenjaID">
+            @*@foreach (ComboBoxVM o in Model.opstine)
+            {
+                if (o.ID == Model.OpstinaRodjenjaID)
+                {
+                    <option selected value="@o.ID">@o.Naziv</option> 
+                }
+                else
+                {
+                    <option value="@o.ID">@o.Naziv</option>
+                }
+            }*@
+        </select>
+    </div>
+    <div>
+        <label>OpstinaPrebivalistaID</label>
+        <select name="OpstinaPrebivalistaID">
+            @*@foreach (ComboBoxVM o in Model.opstine)
+            {
+                if (o.ID == Model.OpstinaPrebivalistaID)
+                {
+                    <option selected value="@o.ID">@o.Naziv</option> 
+                }
+                else
+                {
+                     <option value="@o.ID">@o.Naziv</option>
+                }
+            }*@
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Snimi" class="btn btn-primary" />
+    </div>
+</form>

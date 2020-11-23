@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace Vjezba21102020.Models
 {
     public class StudentDodajVM
     {
-        public List<ComboBoxVM> opstine { get; set; }
+        public List<SelectListItem> opstine { get; set; }
         public int ID { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
