@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Vjezba21102020.EF;
 using Vjezba21102020.EntityModels;
+using Vjezba21102020.Helper;
 using Vjezba21102020.Models;
 
 namespace Vjezba21102020.Controllers
@@ -47,13 +48,29 @@ namespace Vjezba21102020.Controllers
         public IActionResult Uredi(int StudentID)
         {
             MojDbContext db = new MojDbContext();
-            List<Opstina> opstine = db.Opstina
+            List<ComboBoxVM> opstine = db.Opstina
            .OrderBy(o => o.Naziv)
+           .Select(o=> new ComboBoxVM { 
+               ID=o.ID,
+               Naziv=o.Naziv
+           })
            .ToList();
 
-            ViewData["opstine"] = opstine;
-            Student s = StudentID == 0 ? new Student() : db.Student.Find(StudentID);
-            ViewData["student"] = s;
+            //ViewData["opstine"] = opstine;
+            StudentDodajVM s = StudentID == 0 ? new StudentDodajVM() 
+                : db.Student
+                .Where(s => s.ID == StudentID)
+                .Select(s => new StudentDodajVM
+                {
+                    ID = s.ID,
+                    Ime = s.Ime,
+                    Prezime = s.Prezime,
+                    OpstinaPrebivalistaID = s.OpstinaPrebivalistaID,
+                    OpstinaRodjenjaID = s.OpstinaRodjenjaID,
+                    opstine=opstine
+                }).Single();
+              
+          //  ViewData["student"] = s;
             return View("Uredi");
         }
         public IActionResult Obrisi(int StudentID)

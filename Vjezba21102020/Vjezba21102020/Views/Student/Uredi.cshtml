@@ -1,69 +1,52 @@
-﻿@model Vjezba21102020.EntityModels.Student
-@using Vjezba21102020.EntityModels
+﻿@using Vjezba21102020.EntityModels
+@using Vjezba21102020.Helper;
 
-@{
-    var opstine = (List<Opstina>)ViewData["opstine"];
-    var student = (Student)ViewData["student"];
+@model StudentDodajVM
+
+@{ //var opstine = (List<Opstina>)ViewData["opstine"];
+                //            var student = (Student)ViewData["student"]; 
 }
 
-<h1>DodajModel</h1>
-
-<h4>Student</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form action="/Student/Snimi">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group" readonly style="display:none">
-                <label>StudentID</label>
-                <input name="StudentID" value="@student.ID" class="form-control" />
-                <span asp-validation-for="ID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ime" class="control-label"></label>
-                <input asp-for="Ime" value="@student.Ime" class="form-control" />
-                <span asp-validation-for="Ime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Prezime" class="control-label"></label>
-                <input asp-for="Prezime" value="@student.Prezime" class="form-control" />
-                <span asp-validation-for="Prezime" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OpstinaRodjenjaID" class="control-label"></label>
-                <select asp-for="OpstinaRodjenjaID" class="form-control" asp-items="ViewBag.OpstinaRodjenjaID">
-                    @foreach (Opstina o in opstine)
-                    {
-                        if (o.ID == student.OpstinaRodjenjaID)
-                        {
-                            <option selected value="@o.ID">@o.Naziv</option>
-                        }
-                        else
-                        {
-                            <option value="@o.ID">@o.Naziv</option>
-                        }
-                    }
-                </select>
-            </div>
-            <div class="form-group">
-                <label asp-for="OpstinaPrebivalistaID" class="control-label"></label>
-                <select asp-for="OpstinaPrebivalistaID" class="form-control" asp-items="ViewBag.OpstinaPrebivalistaID">
-                    @foreach (Opstina o in opstine)
-                    {
-                        if (o.ID == student.OpstinaPrebivalistaID)
-                        {
-                            <option selected value="@o.ID">@o.Naziv</option>
-                        }
-                        else
-                        {
-                            <option value="@o.ID">@o.Naziv</option>
-                        }
-                    }
-                </select>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Snimi" class="btn btn-primary" />
-            </div>
-        </form>
+<form action="/Student/Snimi">
+    <div style="display:none">
+        <label>StudentID</label>
+        <input name="StudentID" value="@Model.ID" />
     </div>
-</div>
+    <label> Ime </label>
+    <input name="Ime" value="@Model.Ime" />
+
+    <label>Prezime</label>
+    <input name="Prezime" value="@Model.Prezime" />
+
+    <label>OpstinaRodjenjaID</label>
+    <select name="OpstinaRodjenjaID">
+        @foreach (ComboBoxVM o in Model.opstine)
+        {
+            if (o.ID == Model.OpstinaRodjenjaID)
+            {
+                <option selected value="@o.ID">@o.Naziv</option>
+            }
+            else
+            {
+                <option value="@o.ID">@o.Naziv</option>                
+            }
+        }
+    </select>
+    <label>OpstinaPrebivalistaID</label>
+    <select name="OpstinaPrebivalistaID">
+        @foreach (ComboBoxVM o in Model.opstine)
+        {
+            if (o.ID == Model.OpstinaPrebivalistaID)
+            {
+<option selected value="@o.ID">@o.Naziv</option>
+ }
+                else
+                {
+<option value="@o.ID">@o.Naziv</option>
+}
+}
+    </select>
+    <div class="form-group">
+        <input type="submit" value="Snimi" class="btn btn-primary" />
+    </div>
+</form>

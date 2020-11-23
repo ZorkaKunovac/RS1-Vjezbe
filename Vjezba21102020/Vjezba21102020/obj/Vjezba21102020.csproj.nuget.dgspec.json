@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\podaci\\podaci.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\podaci\\podaci.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\podaci\\podaci.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\podaci\\podaci.csproj",
         "projectName": "podaci",
-        "projectPath": "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\podaci\\podaci.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\podaci\\podaci.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\podaci\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\podaci\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -75,14 +75,14 @@
         }
       }
     },
-    "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj",
         "projectName": "Vjezba21102020",
-        "projectPath": "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\Vjezba21102020\\Vjezba21102020.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\Vjezba21102020\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\Vjezba21102020\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -101,8 +101,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\podaci\\podaci.csproj": {
-                "projectPath": "C:\\Users\\User\\Desktop\\RS1-Vjezbe-main\\Vjezba21102020\\podaci\\podaci.csproj"
+              "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\podaci\\podaci.csproj": {
+                "projectPath": "C:\\Users\\User\\Documents\\GitHub\\RS1-Vjezbe\\Vjezba21102020\\podaci\\podaci.csproj"
               }
             }
           }
@@ -136,7 +136,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.0.0, )"
+              "version": "[3.1.4, )"
             }
           },
           "imports": [

@@ -15,7 +15,7 @@ namespace Vjezba21102020.EF
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"	Server=localhost;
-                                        	Database=21102023;
+                                        	Database=23112020;
                                             Trusted_Connection=true;
                                             MultipleActiveResultSets=true;");
         }
