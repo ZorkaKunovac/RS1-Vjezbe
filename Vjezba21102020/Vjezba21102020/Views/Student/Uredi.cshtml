@@ -10,42 +10,48 @@
 <form action="/Student/Snimi">
     <div style="display:none">
         <label>StudentID</label>
-        <input name="StudentID" value="@Model.ID" />
+        <input name="StudentID" readonly value="@Model.ID" />
     </div>
-    <label> Ime </label>
-    <input name="Ime" value="@Model.Ime" />
-
-    <label>Prezime</label>
-    <input name="Prezime" value="@Model.Prezime" />
-
-    <label>OpstinaRodjenjaID</label>
-    <select name="OpstinaRodjenjaID">
-        @foreach (ComboBoxVM o in Model.opstine)
-        {
-            if (o.ID == Model.OpstinaRodjenjaID)
+    <div>
+        <label> Ime </label>
+        <input name="Ime" value="@Model.Ime" />
+    </div>
+    <div>
+        <label>Prezime</label>
+        <input name="Prezime" value="@Model.Prezime" />
+    </div>
+    <div>
+        <label>OpstinaRodjenjaID</label>
+        <select name="OpstinaRodjenjaID">
+            @foreach (ComboBoxVM o in Model.opstine)
             {
-                <option selected value="@o.ID">@o.Naziv</option>
-            }
-            else
-            {
-                <option value="@o.ID">@o.Naziv</option>                
-            }
-        }
-    </select>
-    <label>OpstinaPrebivalistaID</label>
-    <select name="OpstinaPrebivalistaID">
-        @foreach (ComboBoxVM o in Model.opstine)
-        {
-            if (o.ID == Model.OpstinaPrebivalistaID)
-            {
-<option selected value="@o.ID">@o.Naziv</option>
- }
+                if (o.ID == Model.OpstinaRodjenjaID)
+                {
+                    <option selected value="@o.ID">@o.Naziv</option> 
+                }
                 else
                 {
-<option value="@o.ID">@o.Naziv</option>
-}
-}
-    </select>
+                    <option value="@o.ID">@o.Naziv</option>
+                }
+            }
+        </select>
+    </div>
+    <div>
+        <label>OpstinaPrebivalistaID</label>
+        <select name="OpstinaPrebivalistaID">
+            @foreach (ComboBoxVM o in Model.opstine)
+            {
+                if (o.ID == Model.OpstinaPrebivalistaID)
+                {
+                    <option selected value="@o.ID">@o.Naziv</option> 
+                }
+                else
+                {
+                     <option value="@o.ID">@o.Naziv</option>
+                }
+            }
+        </select>
+    </div>
     <div class="form-group">
         <input type="submit" value="Snimi" class="btn btn-primary" />
     </div>

@@ -50,7 +50,8 @@ namespace Vjezba21102020.Controllers
             MojDbContext db = new MojDbContext();
             List<ComboBoxVM> opstine = db.Opstina
            .OrderBy(o => o.Naziv)
-           .Select(o=> new ComboBoxVM { 
+           .Select(o=> new ComboBoxVM 
+           { 
                ID=o.ID,
                Naziv=o.Naziv
            })
@@ -71,7 +72,7 @@ namespace Vjezba21102020.Controllers
                 }).Single();
               
           //  ViewData["student"] = s;
-            return View("Uredi");
+            return View("Uredi",s);
         }
         public IActionResult Obrisi(int StudentID)
         {
