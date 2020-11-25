@@ -14,6 +14,18 @@ namespace Vjezba21102020.Controllers
 {
     public class StudentController : Controller
     {
+        public IActionResult Detalji(int StudentID)
+        {
+            MojDbContext db = new MojDbContext();
+            var m = db.Ocjene.Where(o => o.StudentID == StudentID)
+                .Select(o => new StudentDetaljiVM
+                {
+                    BrojcanaOcjena = o.OcjenaBrojcana,
+                    NazivPredmeta = o.Predmet.Naziv,
+                    Datum = o.Datum
+                }).ToList();
+            return View(m);
+        }
         // public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
         public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
         {

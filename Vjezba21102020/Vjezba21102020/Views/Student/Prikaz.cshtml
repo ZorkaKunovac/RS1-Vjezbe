@@ -38,11 +38,33 @@
             <td>
                 <a href="/Student/Uredi?StudentID=@s.ID">Uredi</a>
                 <a href="/Student/Obrisi?StudentID=@s.ID">Obrisi</a>
+                @*<a href="/Student/Detalji?StudentID=@s.ID">Detalji</a>*@
+                <a href="a" onclick="PrikaziDetalje(@s.ID)">Detalji</a>
+                <button onclick="PrikaziDetalje(@s.ID)">Detalji</button>
+
             </td>
         </tr>
         }
     </tbody>
 </table>
-
+<div id="ajaxPrikaz" style="border:1px solid red">
+    Test
+</div>
+<script>
+    function PrikaziDetalje(StudentID)
+    {
+        //alert("ID studenta je " + StudentID)
+        var zahtjev = new XMLHttpRequest();
+        var url = "/Student/Detalji?StudentID=" + StudentID;
+         zahtjev.onload = function ()
+        {
+             if (zahtjev.status === 200)
+                 document.getElementById("ajaxPrikaz").innerHTML = zahtjev.responseText;
+            else {}
+        }
+        zahtjev.open("GET", url, true);
+        zahtjev.send();
+    }
+</script>
 
 
