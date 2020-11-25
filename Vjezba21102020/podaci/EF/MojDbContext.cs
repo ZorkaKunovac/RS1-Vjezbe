@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using podaci.EntityModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace Vjezba21102020.EF
     {
         public DbSet<Student> Student { get; set; }
         public DbSet<Opstina> Opstina { get; set; }
-
+        public DbSet<Ocjene> Ocjene { get; set; }
+        public DbSet<Predmet> Predmet { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"	Server=localhost;

@@ -14,6 +14,7 @@ namespace Vjezba21102020.Controllers
 {
     public class StudentController : Controller
     {
+        // public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
         public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
         {
             MojDbContext db = new MojDbContext();
@@ -59,8 +60,12 @@ namespace Vjezba21102020.Controllers
            .ToList();
 
             //ViewData["opstine"] = opstine;
-            StudentDodajVM s = StudentID == 0 ? new StudentDodajVM() 
-                : db.Student
+            // StudentDodajVM s = StudentID == 0 ? new StudentDodajVM() 
+            StudentDodajVM s;
+            if (StudentID == 0)
+                s = new StudentDodajVM() { };
+            else
+                s= db.Student
                 .Where(s => s.ID == StudentID)
                 .Select(s => new StudentDodajVM
                 {
@@ -69,8 +74,8 @@ namespace Vjezba21102020.Controllers
                     Prezime = s.Prezime,
                     OpstinaPrebivalistaID = s.OpstinaPrebivalistaID,
                     OpstinaRodjenjaID = s.OpstinaRodjenjaID,
-                    opstine=opstine
                 }).Single();
+            s.opstine = opstine;
               
           //  ViewData["student"] = s;
             return View("Uredi",s);
