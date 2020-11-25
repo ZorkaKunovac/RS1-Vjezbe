@@ -1,0 +1,31 @@
+﻿@using Vjezba21102020.EF
+@using Vjezba21102020.EntityModels
+@model List<StudentDetaljiVM>
+
+@{
+    ViewData["Title"] = "Prikaz";
+}
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Naziv predmeta</th>
+            <th>Ocjena</th>
+            <th>Datum</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (StudentDetaljiVM s in Model)
+        {
+        <tr>
+            <td>@s.NazivPredmeta</td>
+            <td>@s.BrojcanaOcjena</td>
+            <td>@s.Datum.ToString("dd.MM.yyyy") </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+
+
