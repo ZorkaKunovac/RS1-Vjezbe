@@ -14,10 +14,14 @@ namespace Vjezba21102020.Controllers
 {
     public class StudentController : Controller
     {
+        private MojDbContext db = new MojDbContext();
+        //public IActionResult PrisustvoNaNastavi(int StudentID)
+        //{
+
+        //}
         public IActionResult Detalji(int StudentID)
         {
-            MojDbContext db = new MojDbContext();
-            var m = db.Ocjene.Where(o => o.StudentID == StudentID)
+             var m = db.Ocjene.Where(o => o.StudentID == StudentID)
                 .Select(o => new StudentDetaljiVM
                 {
                     BrojcanaOcjena = o.OcjenaBrojcana,
@@ -29,7 +33,6 @@ namespace Vjezba21102020.Controllers
         // public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
         public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
         {
-            MojDbContext db = new MojDbContext();
             Student student;
             if (StudentID == 0)
             {
@@ -52,8 +55,7 @@ namespace Vjezba21102020.Controllers
         }
         public IActionResult Dodaj()
         {
-            MojDbContext mojDb = new MojDbContext();
-            List<Opstina> opstine = mojDb.Opstina
+            List<Opstina> opstine = db.Opstina
                 .OrderBy(o => o.Naziv)
                 .ToList();
             ViewData["opstine"] = opstine;
@@ -61,7 +63,6 @@ namespace Vjezba21102020.Controllers
         }
         public IActionResult Uredi(int StudentID)
         {
-            MojDbContext db = new MojDbContext();
             List<SelectListItem> opstine = db.Opstina
            .OrderBy(o => o.Naziv)
            .Select(o=> new SelectListItem 
@@ -94,7 +95,6 @@ namespace Vjezba21102020.Controllers
         }
         public IActionResult Obrisi(int StudentID)
         {
-            MojDbContext db = new MojDbContext();
             Student s = db.Student.Find(StudentID);
             db.Remove(s);
             db.SaveChanges();
@@ -108,10 +108,9 @@ namespace Vjezba21102020.Controllers
         }
         public IActionResult Prikaz(string search)
         {
-            MojDbContext mojDb = new MojDbContext();
-            List<StudentPrikazVM.Row> studenti = mojDb.Student
+            List<StudentPrikazVM.Row> studenti = db.Student
                 .Where(s => search == null || (s.Ime + " " + s.Prezime).StartsWith(search) || (s.Prezime + " " + s.Ime).StartsWith(search))
-                //.Include("OpstinaRodjenja")
+                //.Include("OpstinaRodsjenja")
                 //.Include(s=> s.OpstinaPrebivalista)
                 .Select(s => new StudentPrikazVM.Row
                 {
