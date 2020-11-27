@@ -5,7 +5,7 @@ using Vjezba21102020.EntityModels;
 
 namespace podaci.EntityModels
 {
-    class PrisustvoNaNastavi
+    public class PrisustvoNaNastavi
     {
         public int StudentID { get; set; }
         public Student Student { get; set; }

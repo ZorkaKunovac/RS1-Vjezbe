@@ -13,6 +13,6 @@ namespace Vjezba21102020.Models
             public DateTime Datum { get; set; }
         }
         public string ImeStudenta { get; set; }
-       // public IEnumerable<Zapis> Zapis { get; set; }
+        public IEnumerable<Zapis> Zapisi { get; set; }
     }
 }

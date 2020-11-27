@@ -15,10 +15,19 @@ namespace Vjezba21102020.Controllers
     public class StudentController : Controller
     {
         private MojDbContext db = new MojDbContext();
-        //public IActionResult PrisustvoNaNastavi(int StudentID)
-        //{
-
-        //}
+        public IActionResult PrisustvoNaNastavi(int StudentID)
+        {
+            var m = new StudentPrisustvoNaNastavi();
+            Student s = db.Student.Find(StudentID);
+            m.ImeStudenta = s.Ime + " " + s.Prezime;
+            m.Zapisi = db.PrisustvoNaNastavi.Where(s => s.StudentID == StudentID)
+                .Select(s => new StudentPrisustvoNaNastavi.Zapis
+                {
+                    Datum = s.Datum,
+                    Predmet = s.Predmet.Naziv
+                }).ToList();
+            return View(m);
+        }
         public IActionResult Detalji(int StudentID)
         {
              var m = db.Ocjene.Where(o => o.StudentID == StudentID)
