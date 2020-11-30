@@ -38,9 +38,10 @@
             <td>
                 <a href="/Student/Uredi?StudentID=@s.ID">Uredi</a>
                 <a href="/Student/Obrisi?StudentID=@s.ID">Obrisi</a>
-                @*<a href="/Student/Detalji?StudentID=@s.ID">Detalji</a>*@
-                <a href="a" onclick="PrikaziDetalje(@s.ID)">Detalji</a>
-                <button onclick="PrikaziDetalje(@s.ID)">Detalji</button>
+                <a class="btn-primary" onclick="PrikaziDetalje(@s.ID)">Detalji</a>
+                <a class="btn-primary" onclick="PrisustvoNaNastavi(@s.ID)">Prisustvo</a>
+
+                @*<button onclick="PrikaziDetalje(@s.ID)">Detalji</button>*@
 
             </td>
         </tr>
@@ -64,6 +65,22 @@
         }
         zahtjev.open("GET", url, true);
         zahtjev.send();
+    }
+
+    function PrisustvoNaNastavi(StudentID)
+    {
+        var url = "/Student/PrisustvoNaNastavi?StudentID=" + StudentID;
+        $.get(url, function (d) {
+           // alert(d);
+            $("#ajaxPrikaz").html(d);
+        })
+        //var zahtjev = new XMLHttpRequest();
+        //zahtjev.onload = function () {
+        //    if (zahtjev.status==200)
+        //    document.getElementById("ajaxPrikaz").innerHTML = zahtjev.responseText;
+        //}
+        //zahtjev.open("GET", url, true);
+        //zahtjev.send();
     }
 </script>
 

@@ -1,11 +1,12 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@model StudentPrisustvoNaNastavi
-Ime studenta
-@Model.ImeStudenta
+﻿@{ 
+    Layout = null;
+}
 
-<table>
+@model StudentPrisustvoNaNastavi
+Ime studenta: 
+@Model.ImeStudenta
+<br />
+<table class="table table-bordered">
     <thead>
         <tr>
             <th>Predmet</th>
@@ -13,7 +14,7 @@ Ime studenta
         </tr>
     </thead>
     <tbody>
-        @foreach (var x in Model.Zapis)
+        @foreach (var x in  Model.Zapisi)
         {
             <tr>
                 <td>@x.Predmet</td>
