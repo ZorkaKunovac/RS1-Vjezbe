@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using podaci.EntityModels;
 using Vjezba21102020.EF;
 using Vjezba21102020.Models;
 
@@ -24,9 +25,18 @@ namespace Vjezba21102020.Controllers
                }).ToList();
             return View(m);
         }
-        public IActionResult Uredi(int StudentID)
+        public IActionResult Uredi(int OcjenaID)
         {
-            return View();
+            var m = db.Ocjene.Where(o => o.ID == OcjenaID)
+                .Select(o => new StudentOcjenaUrediVM
+                {
+                    OcjenaID = o.OcjenaBrojcana,
+                    ImeStudenta=o.Student.Ime+" "+o.Student.Prezime,
+                    NazivPredmeta = o.Predmet.Naziv,
+                    Ocjena=o.OcjenaBrojcana
+                }).Single();
+ 
+            return View(m);
         }
     }
 }

@@ -73,6 +73,13 @@
             $("#ajaxPrikaz").html(d);
         })
     }
+
+    function OtvoriFormuUredi(OcjenaID) {
+        var url = "/StudentOcjene/Uredi?OcjenaID=" + OcjenaID;
+        $.get(url, function (d) {
+            $("#ajaxPrikaz").html(d);
+        })
+    }
 </script>
 
 

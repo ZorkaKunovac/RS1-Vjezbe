@@ -31,6 +31,13 @@
         }
     </tbody>
 </table>
-
+<script>
+    function OtvoriFormuUredi(OcjenaID) {
+        var url = "/StudentOcjene/Prikaz?OcjenaID=" + OcjenaID;
+        $.get(url, function (d) {
+            $("#ajaxPrikaz").html(d);
+        })
+    }
+</script>
 
 
