@@ -54,9 +54,8 @@
 <script>
     function PrikaziDetalje(StudentID)
     {
-        //alert("ID studenta je " + StudentID)
         var zahtjev = new XMLHttpRequest();
-        var url = "/Student/Detalji?StudentID=" + StudentID;
+        var url = "/StudentOcjene/Prikaz?StudentID=" + StudentID;
          zahtjev.onload = function ()
         {
              if (zahtjev.status === 200)
@@ -71,16 +70,8 @@
     {
         var url = "/Student/PrisustvoNaNastavi?StudentID=" + StudentID;
         $.get(url, function (d) {
-           // alert(d);
             $("#ajaxPrikaz").html(d);
         })
-        //var zahtjev = new XMLHttpRequest();
-        //zahtjev.onload = function () {
-        //    if (zahtjev.status==200)
-        //    document.getElementById("ajaxPrikaz").innerHTML = zahtjev.responseText;
-        //}
-        //zahtjev.open("GET", url, true);
-        //zahtjev.send();
     }
 </script>
 
