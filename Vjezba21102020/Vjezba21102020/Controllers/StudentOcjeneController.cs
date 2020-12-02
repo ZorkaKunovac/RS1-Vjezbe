@@ -27,7 +27,7 @@ namespace Vjezba21102020.Controllers
         }
         public IActionResult Uredi(int OcjenaID)
         {
-            var m = db.Ocjene.Where(o => o.ID == OcjenaID)
+            StudentOcjenaUrediVM m = db.Ocjene.Where(o => o.ID == OcjenaID)
                 .Select(o => new StudentOcjenaUrediVM
                 {
                     OcjenaID = o.OcjenaBrojcana,
@@ -37,6 +37,15 @@ namespace Vjezba21102020.Controllers
                 }).Single();
  
             return View(m);
+        }
+        public IActionResult Snimi(StudentOcjenaUrediVM x)
+        {
+            Ocjene ocjene = db.Ocjene.Find(x.OcjenaID);
+            ocjene.OcjenaBrojcana = x.Ocjena;
+            db.SaveChanges();
+
+            //    return RedirectToAction("Prikaz", new { StudentID=ocjene.StudentID });
+            return Redirect("/StudentOcjene/Prikaz?StudentID=" + ocjene.StudentID);
         }
     }
 }

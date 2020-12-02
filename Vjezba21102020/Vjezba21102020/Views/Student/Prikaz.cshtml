@@ -38,48 +38,63 @@
             <td>
                 <a href="/Student/Uredi?StudentID=@s.ID">Uredi</a>
                 <a href="/Student/Obrisi?StudentID=@s.ID">Obrisi</a>
-                <a class="btn-primary" onclick="PrikaziDetalje(@s.ID)">Detalji</a>
-                <a class="btn-primary" onclick="PrisustvoNaNastavi(@s.ID)">Prisustvo</a>
-
-                @*<button onclick="PrikaziDetalje(@s.ID)">Detalji</button>*@
-
-            </td>
+                <button onclick="OcjenePrikaz(@s.ID)">Ocjene</button>
+                <button onclick="PrisustvoNaNastaviPrikaz(@s.ID)">PrisustvoNaNastavi</button>
+                    @*<a class="btn-primary" onclick="PrikaziDetalje(@s.ID)">Detalji</a>*@
+                    @*<a class="btn-primary" onclick="PrisustvoNaNastavi(@s.ID)">Prisustvo</a>*@
+</td>
         </tr>
         }
     </tbody>
 </table>
-<div id="ajaxPrikaz" style="border:1px solid red">
+<div id="ajaxPrikaz" style="border: 1px solid red">
     Test
 </div>
-<script>
-    function PrikaziDetalje(StudentID)
-    {
-        var zahtjev = new XMLHttpRequest();
-        var url = "/StudentOcjene/Prikaz?StudentID=" + StudentID;
-         zahtjev.onload = function ()
-        {
-             if (zahtjev.status === 200)
-                 document.getElementById("ajaxPrikaz").innerHTML = zahtjev.responseText;
-            else {}
-        }
-        zahtjev.open("GET", url, true);
-        zahtjev.send();
-    }
-
-    function PrisustvoNaNastavi(StudentID)
-    {
-        var url = "/Student/PrisustvoNaNastavi?StudentID=" + StudentID;
+<script> 
+    function PrisustvoNaNastaviPrikaz(StudentID) {
+        var url = "/Student/PrisustvoNaNastaviPrikaz?StudentID=" + StudentID;
         $.get(url, function (d) {
             $("#ajaxPrikaz").html(d);
         })
     }
+    function OcjenePrikaz(StudentID) {
 
-    function OtvoriFormuUredi(OcjenaID) {
+        var url = "/StudentOcjene/Prikaz?StudentID=" + StudentID;
+
+        var zahtjev = new XMLHttpRequest();
+        zahtjev.onload = function () {
+            if (zahtjev.status === 200) {
+                document.getElementById("ajaxPrikaz").innerHTML = zahtjev.responseText;
+            } else {
+
+            }
+        };
+
+        zahtjev.open("GET", url, true);
+        zahtjev.send();
+    }
+
+    function OcjeneUredi(OcjenaID) {
         var url = "/StudentOcjene/Uredi?OcjenaID=" + OcjenaID;
         $.get(url, function (d) {
             $("#ajaxPrikaz").html(d);
         })
     }
+
+    function OcjeneSnimi() {
+        var form = $("#OcjenaForma");
+        var url = "/StudentOcjene/Snimi";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(),
+            success: function (data) {
+                $("#ajaxPrikaz").html(data);
+            }
+        });
+        alert("Uspjesno snimljeno");
+    }
+   
 </script>
 
 

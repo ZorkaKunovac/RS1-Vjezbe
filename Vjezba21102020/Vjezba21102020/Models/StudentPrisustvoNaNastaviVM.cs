@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Vjezba21102020.Models
 {
-    public class StudentPrisustvoNaNastavi
+    public class StudentPrisustvoNaNastaviVM
     {
         public class Zapis 
         {

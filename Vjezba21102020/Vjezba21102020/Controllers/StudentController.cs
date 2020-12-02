@@ -17,11 +17,11 @@ namespace Vjezba21102020.Controllers
         private MojDbContext db = new MojDbContext();
         public IActionResult PrisustvoNaNastavi(int StudentID)
         {
-            var m = new StudentPrisustvoNaNastavi();
+            var m = new StudentPrisustvoNaNastaviVM();
             Student s = db.Student.Find(StudentID);
             m.ImeStudenta = s.Ime + " " + s.Prezime;
             m.Zapisi = db.PrisustvoNaNastavi.Where(s => s.StudentID == StudentID)
-                .Select(s => new StudentPrisustvoNaNastavi.Zapis
+                .Select(s => new StudentPrisustvoNaNastaviVM.Zapis
                 {
                     Datum = s.Datum,
                     Predmet = s.Predmet.Naziv
