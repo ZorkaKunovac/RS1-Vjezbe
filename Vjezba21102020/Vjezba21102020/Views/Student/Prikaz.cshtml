@@ -40,9 +40,8 @@
                 <a href="/Student/Obrisi?StudentID=@s.ID">Obrisi</a>
                 <button onclick="OcjenePrikaz(@s.ID)">Ocjene</button>
                 <button onclick="PrisustvoNaNastaviPrikaz(@s.ID)">PrisustvoNaNastavi</button>
-                    @*<a class="btn-primary" onclick="PrikaziDetalje(@s.ID)">Detalji</a>*@
-                    @*<a class="btn-primary" onclick="PrisustvoNaNastavi(@s.ID)">Prisustvo</a>*@
-</td>
+
+            </td>
         </tr>
         }
     </tbody>
@@ -52,7 +51,13 @@
 </div>
 <script> 
     function PrisustvoNaNastaviPrikaz(StudentID) {
-        var url = "/Student/PrisustvoNaNastaviPrikaz?StudentID=" + StudentID;
+        var url = "/PrisustvoNaNastavi/Prikaz?StudentID=" + StudentID;
+        $.get(url, function (d) {
+            $("#ajaxPrikaz").html(d);
+        })
+    }
+    function PrisustvoNaNastaviUredi(PrisustvoNaNastaviID) {
+        var url = "/PrisustvoNaNastavi/Uredi?PrisustvoNaNastaviID=" + PrisustvoNaNastaviID;
         $.get(url, function (d) {
             $("#ajaxPrikaz").html(d);
         })

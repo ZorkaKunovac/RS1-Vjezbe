@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Vjezba21102020.EF;
 
 namespace podaci.Migrations
 {
     [DbContext(typeof(MojDbContext))]
-    partial class MojDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201202192806_NovekoloneuPrisustvuNaNastavi")]
+    partial class NovekoloneuPrisustvuNaNastavi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

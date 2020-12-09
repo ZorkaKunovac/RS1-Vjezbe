@@ -30,7 +30,7 @@ namespace Vjezba21102020.Controllers
             StudentOcjenaUrediVM m = db.Ocjene.Where(o => o.ID == OcjenaID)
                 .Select(o => new StudentOcjenaUrediVM
                 {
-                    OcjenaID = o.OcjenaBrojcana,
+                    OcjenaID = o.ID,
                     ImeStudenta=o.Student.Ime+" "+o.Student.Prezime,
                     NazivPredmeta = o.Predmet.Naziv,
                     Ocjena=o.OcjenaBrojcana

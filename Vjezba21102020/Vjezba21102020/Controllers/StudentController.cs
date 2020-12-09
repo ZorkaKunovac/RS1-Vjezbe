@@ -15,19 +15,7 @@ namespace Vjezba21102020.Controllers
     public class StudentController : Controller
     {
         private MojDbContext db = new MojDbContext();
-        public IActionResult PrisustvoNaNastavi(int StudentID)
-        {
-            var m = new StudentPrisustvoNaNastaviVM();
-            Student s = db.Student.Find(StudentID);
-            m.ImeStudenta = s.Ime + " " + s.Prezime;
-            m.Zapisi = db.PrisustvoNaNastavi.Where(s => s.StudentID == StudentID)
-                .Select(s => new StudentPrisustvoNaNastaviVM.Zapis
-                {
-                    Datum = s.Datum,
-                    Predmet = s.Predmet.Naziv
-                }).ToList();
-            return View(m);
-        }
+       
          // public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
         public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
         {
@@ -94,6 +82,12 @@ namespace Vjezba21102020.Controllers
         public IActionResult Obrisi(int StudentID)
         {
             Student s = db.Student.Find(StudentID);
+
+            var OcjenaZaBrisati = db.Ocjene.Where(o => o.StudentID == s.ID).ToList();
+            var PrisustvoZaBrisati = db.PrisustvoNaNastavi.Where(o => o.StudentID == s.ID).ToList();
+            db.RemoveRange(OcjenaZaBrisati);
+            db.RemoveRange(PrisustvoZaBrisati);
+
             db.Remove(s);
             db.SaveChanges();
 
