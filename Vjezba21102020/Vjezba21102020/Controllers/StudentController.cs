@@ -15,26 +15,24 @@ namespace Vjezba21102020.Controllers
     public class StudentController : Controller
     {
         private MojDbContext db = new MojDbContext();
-       
-         // public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
-        public IActionResult Snimi(int StudentID, string Ime, string Prezime, int OpstinaRodjenjaID, int OpstinaPrebivalistaID)
+        public IActionResult Snimi(StudentDodajVM x)
         {
             Student student;
-            if (StudentID == 0)
+            if (x.ID == 0)
             {
                 student = new Student();
                 db.Add(student);
-                TempData["PorukaInfo"] = "Uspjesno ste dodali studenta " + Ime;
+                TempData["PorukaInfo"] = "Uspjesno ste dodali studenta " + x.Ime;
             }
             else
             {
-                student = db.Student.Find(StudentID);
-                TempData["PorukaInfo"] = "Uspjesno ste updateovali studenta " + Ime;
+                student = db.Student.Find(x.ID);
+                TempData["PorukaInfo"] = "Uspjesno ste updateovali studenta " + student.Ime;
             }
-            student.Ime = Ime;
-            student.Prezime = Prezime;
-            student.OpstinaRodjenjaID = OpstinaRodjenjaID;
-            student.OpstinaPrebivalistaID = OpstinaPrebivalistaID;
+            student.Ime = x.Ime;
+            student.Prezime = x.Prezime;
+            student.OpstinaRodjenjaID = x.OpstinaRodjenjaID;
+            student.OpstinaPrebivalistaID = x.OpstinaPrebivalistaID;
 
             db.SaveChanges();
             return Redirect("/Student/Poruka");
