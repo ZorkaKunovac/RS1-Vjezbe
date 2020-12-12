@@ -61,6 +61,29 @@
             $("#ajaxPrikaz").html(d);
         })
     }
+    function PrisustvoNaNastaviSnimi() {
+        //var form = $("#PrisustvoNaNastaviSnimi");
+        //var url = "/PrisustvoNaNastavi/Snimi";
+        //$.ajax({
+        //    type: "POST",
+        //    url: url,
+        //    data: form.serialize(),
+        //    success: function (data) { $("#ajaxPrikaz").html(data); }
+        //});
+        var form = $("#PrisustvoNaNastaviSnimi");
+        var url = "/PrisustvoNaNastavi/Snimi";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(),
+            success: function (data) {
+                alert("Uspjesno snimljeno");
+                $("#ajaxPrikaz").html(data);
+            }
+        });
+
+    }
+
     function OcjenePrikaz(StudentID) {
 
         var url = "/StudentOcjene/Prikaz?StudentID=" + StudentID;
@@ -77,7 +100,7 @@
         zahtjev.open("GET", url, true);
         zahtjev.send();
     }
-
+    
     function OcjeneUredi(OcjenaID) {
         var url = "/StudentOcjene/Uredi?OcjenaID=" + OcjenaID;
         $.get(url, function (d) {
@@ -93,10 +116,10 @@
             url: url,
             data: form.serialize(),
             success: function (data) {
+                alert("Uspjesno snimljeno");
                 $("#ajaxPrikaz").html(data);
             }
         });
-        alert("Uspjesno snimljeno");
     }
    
 </script>

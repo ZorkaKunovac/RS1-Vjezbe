@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using podaci.EntityModels;
 using Vjezba21102020.EF;
 using Vjezba21102020.EntityModels;
 using Vjezba21102020.Models;
@@ -23,7 +24,8 @@ namespace Vjezba21102020.Controllers
                     Datum = s.Datum,
                     Predmet = s.Predmet.Naziv,
                     Komentar=s.Komentar,
-                    Prisutan=s.IsPrisutan
+                    Prisutan=s.IsPrisutan,
+                    PrisustvoNaNastaviID=s.ID
                 }).ToList();
             return View(m);
         }
@@ -40,6 +42,13 @@ namespace Vjezba21102020.Controllers
                 }).Single();
             return View(m);
         }
-
+        public IActionResult Snimi(PrisustvoNaNastaviUrediVM x)
+        {
+            PrisustvoNaNastavi prisustvo = db.PrisustvoNaNastavi.Find(x.PrisustvoNaNastaviID);
+            prisustvo.IsPrisutan = x.IsPrisutan;
+            prisustvo.Komentar = x.Komentar;
+            db.SaveChanges();
+            return Redirect("/PrisustvoNaNastavi/Prikaz?StudentID=" + prisustvo.StudentID);
+        }
     }
 }
