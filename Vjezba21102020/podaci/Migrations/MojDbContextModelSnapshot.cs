@@ -62,6 +62,24 @@ namespace podaci.Migrations
                     b.ToTable("Student");
                 });
 
+            modelBuilder.Entity("podaci.EntityModels.KorisnickiNalog", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("KorisnickoIme")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lozinka")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("KorisnickiNalog");
+                });
+
             modelBuilder.Entity("podaci.EntityModels.Ocjene", b =>
                 {
                     b.Property<int>("ID")

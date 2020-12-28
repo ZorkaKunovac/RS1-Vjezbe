@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using podaci.EntityModels;
 using Vjezba21102020.EF;
@@ -19,11 +16,11 @@ namespace Vjezba21102020.Controllers
 
         public IActionResult Login(AutentifikacijaIndexVM x)
         {
-            KorisnickiNalog nalog = db.KorisnickiNalog.Where(k => k.KorisnickoIme == x.username && k.Lozinka == x.password).SingleOrDefault();
+            KorisnickiNalog nalog = db.KorisnickiNalog.SingleOrDefault(k => k.KorisnickoIme == x.username && k.Lozinka == x.password);
             if (nalog == null)
             {
                 TempData["porukaGreska"] = "Neispravan username/password";
-                return View("Index");
+                return Redirect("/Autentifikacija/Index");
             }
             return Redirect("/");
         }

@@ -1,4 +1,7 @@
 ﻿
+@{ 
+    string error_poruka = (string)TempData["porukaGreska"];
+}
 @model AutentifikacijaIndexVM
 
 <div class="col-md-4 col-md-offset-4">
@@ -27,11 +30,11 @@
         @*<input asp-for="ZapamtiPassword" />   Zapamti password*@
     </form>
 
-    @*@if (error_poruka != null)
+    @if (error_poruka != null)
     {
         <br />
         <div class="alert alert-danger">
             @error_poruka
         </div>
-    }*@
+    }
 </div>  

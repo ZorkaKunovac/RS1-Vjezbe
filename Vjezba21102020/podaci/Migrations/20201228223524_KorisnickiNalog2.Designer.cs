@@ -10,8 +10,8 @@ using Vjezba21102020.EF;
 namespace podaci.Migrations
 {
     [DbContext(typeof(MojDbContext))]
-    [Migration("20201228220832_KorisnickiNalog")]
-    partial class KorisnickiNalog
+    [Migration("20201228223524_KorisnickiNalog2")]
+    partial class KorisnickiNalog2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -62,6 +62,24 @@ namespace podaci.Migrations
                     b.HasIndex("OpstinaRodjenjaID");
 
                     b.ToTable("Student");
+                });
+
+            modelBuilder.Entity("podaci.EntityModels.KorisnickiNalog", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("KorisnickoIme")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lozinka")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("KorisnickiNalog");
                 });
 
             modelBuilder.Entity("podaci.EntityModels.Ocjene", b =>
