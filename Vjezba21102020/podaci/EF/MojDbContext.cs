@@ -15,6 +15,8 @@ namespace Vjezba21102020.EF
         public DbSet<Ocjene> Ocjene { get; set; }
         public DbSet<Predmet> Predmet { get; set; }
         public DbSet<PrisustvoNaNastavi> PrisustvoNaNastavi { get; set; }
+        public DbSet<KorisnickiNalog> KorisnickiNalog { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"	Server=localhost;
