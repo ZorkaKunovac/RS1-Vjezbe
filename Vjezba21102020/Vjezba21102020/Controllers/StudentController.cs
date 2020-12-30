@@ -17,6 +17,9 @@ namespace Vjezba21102020.Controllers
         private MojDbContext db = new MojDbContext();
         public IActionResult Snimi(StudentDodajVM x)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Index");
+
             Student student;
             if (x.ID == 0)
             {
@@ -47,6 +50,9 @@ namespace Vjezba21102020.Controllers
         }
         public IActionResult Uredi(int StudentID)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Index");
+
             List<SelectListItem> opstine = db.Opstina
            .OrderBy(o => o.Naziv)
            .Select(o=> new SelectListItem 
@@ -79,6 +85,9 @@ namespace Vjezba21102020.Controllers
         }
         public IActionResult Obrisi(int StudentID)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Index");
+
             Student s = db.Student.Find(StudentID);
 
             var OcjenaZaBrisati = db.Ocjene.Where(o => o.StudentID == s.ID).ToList();
@@ -98,6 +107,9 @@ namespace Vjezba21102020.Controllers
         }
         public IActionResult Prikaz(string search)
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Index");
+
             List<StudentPrikazVM.Row> studenti = db.Student
                 .Where(s => search == null || (s.Ime + " " + s.Prezime).StartsWith(search) || (s.Prezime + " " + s.Ime).StartsWith(search))
                 //.Include("OpstinaRodsjenja")

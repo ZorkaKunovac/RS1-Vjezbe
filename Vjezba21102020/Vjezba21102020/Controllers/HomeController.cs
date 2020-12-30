@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Vjezba21102020.Models;
+using Vjezba21102020.Helper;
 
 namespace Vjezba21102020.Controllers
 {
@@ -20,6 +21,8 @@ namespace Vjezba21102020.Controllers
 
         public IActionResult Index()
         {
+            if (HttpContext.GetLogiraniKorisnik() == null)
+                return Redirect("/Autentifikacija/Index");
             return View();
         }
 
