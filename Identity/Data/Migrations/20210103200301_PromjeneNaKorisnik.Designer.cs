@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication2.Data;
 
 namespace Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210103200301_PromjeneNaKorisnik")]
+    partial class PromjeneNaKorisnik
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -97,17 +99,16 @@ namespace Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("KorisnikID")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("Ime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prezime")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("predmet")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("KorisnikID")
-                        .IsUnique()
-                        .HasFilter("[KorisnikID] IS NOT NULL");
 
                     b.ToTable("Nastavnici");
                 });
@@ -122,14 +123,13 @@ namespace Data.Migrations
                     b.Property<string>("BrojIndeksa")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("KorisnikID")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<string>("Ime")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Prezime")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("KorisnikID")
-                        .IsUnique()
-                        .HasFilter("[KorisnikID] IS NOT NULL");
 
                     b.ToTable("Studenti");
                 });
@@ -267,20 +267,6 @@ namespace Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Data.EntityModels.Nastavnik", b =>
-                {
-                    b.HasOne("Data.EntityModels.Korisnik", "Korisnik")
-                        .WithOne("Nastavnik")
-                        .HasForeignKey("Data.EntityModels.Nastavnik", "KorisnikID");
-                });
-
-            modelBuilder.Entity("Data.EntityModels.Student", b =>
-                {
-                    b.HasOne("Data.EntityModels.Korisnik", "Korisnik")
-                        .WithOne("Student")
-                        .HasForeignKey("Data.EntityModels.Student", "KorisnikID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
