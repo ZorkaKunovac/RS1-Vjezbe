@@ -1,0 +1,32 @@
+﻿@using WebApplication2.ViewModels
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@model List<FakturaPrikazVM>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Datum</th>
+            <th>Klijent</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (FakturaPrikazVM f in Model)
+        {
+        <tr>
+            <td>@f.Datum.ToString("dd.MM.yyyy")</td>
+            <td>@f.ImeKlijenta</td>
+            <td>
+                <a href="/Faktura/Detalji?FakturaID=@f.FakturaId">Detalji</a> |
+                <a href="/Faktura/Obrisi?FakturaID=@f.FakturaId">Obrisi</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Faktura/Dodaj">Dodaj</a>
+

@@ -1,0 +1,37 @@
+﻿@using WebApplication2.ViewModels
+
+@{
+    Layout = null;
+}
+@model StavkeFakturePrikaz
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th> Proizvod</th>
+            <th> Cijena</th>
+            <th> Kolicina</th>
+            <th> Popust</th>
+            <th> Iznos</th>
+            <th> Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var f in Model.rows)
+        {
+            <tr>
+                <td>@f.Proizvod</td>
+                <td>@f.Cijena</td>
+                <td>@f.Kolicina</td>
+                <td>@f.Popust</td>
+                <td>@f.Iznos</td>
+                <td>
+                    <button onclick="StavkaObrisi(@f.StavkaID)">Obrisi</button>
+                    <button onclick="StavkaUredi(@f.StavkaID)">Uredi</button>
+                    <a href="/FakturaStavka/Uredi?StavkaID=@f.StavkaID"> Uredi</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<button onclick="StavkaDodaj(@Model.FakturaID)">Dodaj</button>

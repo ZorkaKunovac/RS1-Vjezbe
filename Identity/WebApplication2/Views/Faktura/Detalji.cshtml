@@ -1,0 +1,59 @@
+﻿@using WebApplication2.ViewModels
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@model FakturaDetaljiVM
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Klijent:    @Model.ImeKlijenta</th>
+        </tr>
+           <tr> <th>Datum:      @Model.Datum.ToString("dd.MM.yyyy")</th></tr>
+    </thead>
+</table>
+<div id="ajaxDiv">
+
+</div>
+<script>
+    function UcitajStavke() {
+        $.get("/FakturaStavka/Index?FakturaID=@Model.FakturaId", function (d) {
+            $("#ajaxDiv").html(d);
+        })
+    }
+    UcitajStavke();
+
+    function StavkaObrisi(StavkeFaktureId) {
+        $.get("/FakturaStavka/Obrisi?StavkeFaktureId=" + StavkeFaktureId,
+            function (d) {
+                UcitajStavke();
+            });
+    }
+
+    function StavkaUredi(StavkaID) {
+        $.get("/FakturaStavka/Uredi?StavkaID=" + StavkaID,
+            function (d) {
+                $("#ajaxDiv").html(d);
+            });
+    }
+    
+    function StavkaDodaj(FakturaID) {
+        $.get("/FakturaStavka/Dodaj?FakturaID=" + FakturaID,
+            function (d) {
+                $("#ajaxDiv").html(d);
+            });
+    }
+
+    function StavkaSnimi() {
+        var form = $("#StavkaForma");
+        var url = "/FakturaStavka/Snimi";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(),
+            success: function (data) { UcitajStavke(); }
+        });
+    }
+</script>
