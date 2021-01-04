@@ -408,3 +408,9 @@ C:\Users\User\Documents\GitHub\RS1-Vjezbe\Identity\WebApplication2\obj\Debug\net
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Identity\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Identity\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\User\Documents\GitHub\RS1-Vjezbe\Identity\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Identity\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\FakturaStavka\Dodaj.cshtml.g.cs
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Identity\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\FakturaStavka\Index.cshtml.g.cs
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Identity\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Faktura\Detalji.cshtml.g.cs
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Identity\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Faktura\Dodaj.cshtml.g.cs
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Identity\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Faktura\Index.cshtml.g.cs
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Identity\WebApplication2\obj\Debug\netcoreapp3.1\Razor\Views\Home\TestDB.cshtml.g.cs

@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using WebApplication2.Models;
 using WebApplication2.Data;
+using Data;
 
 namespace WebApplication2.Controllers
 {
@@ -24,7 +21,11 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
-
+        public IActionResult TestDB()
+        {
+            MojDBInitializer.Podaci(_db);
+            return View(_db);
+        }
         public IActionResult Privacy()
         {
             return View();

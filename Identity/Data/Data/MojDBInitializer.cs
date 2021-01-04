@@ -3,17 +3,14 @@ using Data.EntityModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using WebApplication2.Data;
 
-namespace RS1_Faktura.EF
+namespace Data
 {
     public class MojDBInitializer
     {
         public static void Podaci(ApplicationDbContext context)
         {
-         
-                 
             if (context.Klijent.Count()>0)
                 return;
 
@@ -51,7 +48,6 @@ namespace RS1_Faktura.EF
 
             context.SaveChanges();
         }
-
         private static void DodajPonudu(Klijent klijent, DateTime dateTime, ApplicationDbContext context)
         {
             var ponuda = new Ponuda
@@ -61,13 +57,11 @@ namespace RS1_Faktura.EF
             };
             context.Ponuda.Add(ponuda);
 
-
             var c = proizvodi.Count();
             var random = new Random();
 
             for (int i = 0; i < new Random().Next(2, 10); i++)
             {
-
                 var pRandom = random.Next(0, c - 1);
                 var stavka = new PonudaStavka()
                 {
@@ -78,7 +72,6 @@ namespace RS1_Faktura.EF
                 context.PonudaStavka.Add(stavka);
             }
         }
-
         private static readonly List<Proizvod> proizvodi = new List<Proizvod>();
         private static void DodajProizvod(string proizvod, float cijena, AkcijskiKatalog akcijskiKatalog, float katalogPopust, ApplicationDbContext context)
         {
@@ -97,7 +90,6 @@ namespace RS1_Faktura.EF
                 Proizvod = p,
                 PopustProcenat = katalogPopust,
             };
-
             context.KatalogStavka.Add(stavka);
         }
     }
