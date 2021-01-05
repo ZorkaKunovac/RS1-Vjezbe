@@ -4,12 +4,8 @@ using System.Text;
 
 namespace Data.EntityModels
 {
-    public class Nastavnik
+    public class Nastavnik:Korisnik
     {
-        public int ID { get; set; }
         public string Zvanje { get; set; }
-
-        public string KorisnikID { get; set; }
-        public Korisnik Korisnik { get; set; }
     }
 }

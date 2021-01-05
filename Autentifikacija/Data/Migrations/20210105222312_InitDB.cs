@@ -154,46 +154,6 @@ namespace Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "Nastavnik",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Zvanje = table.Column<string>(nullable: true),
-                    KorisnikID = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Nastavnik", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Nastavnik_AspNetUsers_KorisnikID",
-                        column: x => x.KorisnikID,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "Student",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    BrojIndeksa = table.Column<string>(nullable: true),
-                    KorisnikID = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Student", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Student_AspNetUsers_KorisnikID",
-                        column: x => x.KorisnikID,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
-                });
-
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -232,20 +192,6 @@ namespace Data.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Nastavnik_KorisnikID",
-                table: "Nastavnik",
-                column: "KorisnikID",
-                unique: true,
-                filter: "[KorisnikID] IS NOT NULL");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Student_KorisnikID",
-                table: "Student",
-                column: "KorisnikID",
-                unique: true,
-                filter: "[KorisnikID] IS NOT NULL");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -264,12 +210,6 @@ namespace Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
-
-            migrationBuilder.DropTable(
-                name: "Nastavnik");
-
-            migrationBuilder.DropTable(
-                name: "Student");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

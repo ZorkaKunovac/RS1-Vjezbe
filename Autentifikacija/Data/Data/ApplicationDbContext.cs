@@ -17,18 +17,7 @@ namespace Autentifikacija.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Korisnik>()
-            .HasOne(s => s.Nastavnik)
-            .WithOne(ad => ad.Korisnik)
-            .HasForeignKey<Nastavnik>(ad => ad.KorisnikID);
-
-            builder.Entity<Korisnik>()
-           .HasOne(s => s.Student)
-           .WithOne(ad => ad.Korisnik)
-           .HasForeignKey<Student>(ad => ad.KorisnikID);
         }
 
-        public DbSet<Nastavnik> Nastavnik { get; set; }
-        public DbSet<Student> Student { get; set; }
     }
 }

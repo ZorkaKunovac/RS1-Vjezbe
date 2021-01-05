@@ -27,7 +27,7 @@ namespace Autentifikacija.Controllers
         [Authorize]
         public IActionResult Index()
         {
-
+            return View();
         }
 
         public IActionResult Privacy()
@@ -44,13 +44,14 @@ namespace Autentifikacija.Controllers
         public string DodajNastavnika(string ime, string prezime)
         {
             string email = ime + "." + prezime + "@edu.fit.ba";
-            var korisnik = new Korisnik
+            var korisnik = new Nastavnik
             {
                 Email = email,
                 UserName = email,
                 Ime = ime,
                 Prezime = prezime,
                 EmailConfirmed = true,
+                Zvanje = "prof dr"
             };
             IdentityResult result = _userManager.CreateAsync(korisnik, "Mostar2020!").Result;
 
@@ -58,14 +59,6 @@ namespace Autentifikacija.Controllers
             {
                 return "errors: " + string.Join('|', result.Errors);
             }
-
-            Nastavnik nastavnik = new Nastavnik
-            {
-                Korisnik = korisnik,
-                Zvanje = "prof dr"
-            };
-            _db.Nastavnik.Add(nastavnik);
-            _db.SaveChanges();
             return "Nastavnik je uspješno dodat";
         }
 

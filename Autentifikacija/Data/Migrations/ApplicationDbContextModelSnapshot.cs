@@ -90,50 +90,6 @@ namespace Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Data.EntityModels.Nastavnik", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("KorisnikID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Zvanje")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("KorisnikID")
-                        .IsUnique()
-                        .HasFilter("[KorisnikID] IS NOT NULL");
-
-                    b.ToTable("Nastavnik");
-                });
-
-            modelBuilder.Entity("Data.EntityModels.Student", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BrojIndeksa")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("KorisnikID")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("KorisnikID")
-                        .IsUnique()
-                        .HasFilter("[KorisnikID] IS NOT NULL");
-
-                    b.ToTable("Student");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -267,20 +223,6 @@ namespace Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
-                });
-
-            modelBuilder.Entity("Data.EntityModels.Nastavnik", b =>
-                {
-                    b.HasOne("Data.EntityModels.Korisnik", "Korisnik")
-                        .WithOne("Nastavnik")
-                        .HasForeignKey("Data.EntityModels.Nastavnik", "KorisnikID");
-                });
-
-            modelBuilder.Entity("Data.EntityModels.Student", b =>
-                {
-                    b.HasOne("Data.EntityModels.Korisnik", "Korisnik")
-                        .WithOne("Student")
-                        .HasForeignKey("Data.EntityModels.Student", "KorisnikID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
