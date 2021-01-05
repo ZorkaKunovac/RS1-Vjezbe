@@ -9,6 +9,7 @@ using Autentifikacija.Models;
 using Data.EntityModels;
 using Microsoft.AspNetCore.Identity;
 using Autentifikacija.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Autentifikacija.Controllers
 {
@@ -23,10 +24,10 @@ namespace Autentifikacija.Controllers
             _userManager = userManager;
             _db = db;
         }
-
+        [Authorize]
         public IActionResult Index()
         {
-            return View();
+
         }
 
         public IActionResult Privacy()

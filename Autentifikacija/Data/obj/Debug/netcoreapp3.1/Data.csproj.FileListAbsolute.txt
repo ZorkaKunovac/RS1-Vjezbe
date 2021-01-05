@@ -10,3 +10,15 @@ C:\Users\User\source\repos\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.csp
 C:\Users\User\source\repos\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.dll
 C:\Users\User\source\repos\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.pdb
 C:\Users\User\source\repos\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.genruntimeconfig.cache
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\bin\Debug\netcoreapp3.1\Data.deps.json
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.json
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\bin\Debug\netcoreapp3.1\Data.runtimeconfig.dev.json
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\bin\Debug\netcoreapp3.1\Data.dll
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\bin\Debug\netcoreapp3.1\Data.pdb
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.csprojAssemblyReference.cache
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.dll
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.pdb
+C:\Users\User\Documents\GitHub\RS1-Vjezbe\Autentifikacija\Data\obj\Debug\netcoreapp3.1\Data.genruntimeconfig.cache
