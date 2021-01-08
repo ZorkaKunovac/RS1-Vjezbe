@@ -1,0 +1,127 @@
+﻿
+@using Data.EntityModels
+@model StudentPrikazVM
+
+@{
+    ViewData["Title"] = "Prikaz";
+    //var studenti = (List<Student>)ViewData["studenti"];
+    //var search = ViewData["search"];
+    //StudentPrikazVM m = Model;
+}
+
+<h1>Prikaz</h1>
+<a href="/Student/Dodaj" type="button" class="btn btn-primary">Dodaj</a>
+<form>
+    <input name="search" value="@Model.search"/>
+    <input type="submit" value="Trazi" />
+</form>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Ime</th>
+            <th>Prezime</th>
+            <th>OpstinaPrebivalista</th>
+            <th>OpstinaRodjenja</th>
+            <th>Akcija</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (StudentPrikazVM.Row s in Model.studenti)
+        {
+        <tr>
+            <td>@s.ID</td>
+            <td>@s.Ime</td>
+            <td>@s.Prezime</td>
+            <td>@s.OpstinaPrebivalista</td>
+            <td>@s.OpstinaRodjenja</td>
+            <td>
+                <a href="/Student/Uredi?StudentID=@s.ID">Uredi</a>
+                <a href="/Student/Obrisi?StudentID=@s.ID">Obrisi</a>
+                <button onclick="OcjenePrikaz(@s.ID)">Ocjene</button>
+                <button onclick="PrisustvoNaNastaviPrikaz(@s.ID)">PrisustvoNaNastavi</button>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<div id="ajaxPrikaz" style="border: 1px solid red">
+    Test
+</div>
+<script> 
+    function PrisustvoNaNastaviPrikaz(StudentID) {
+        var url = "/PrisustvoNaNastavi/Prikaz?StudentID=" + StudentID;
+        $.get(url, function (d) {
+            $("#ajaxPrikaz").html(d);
+        })
+    }
+    function PrisustvoNaNastaviUredi(PrisustvoNaNastaviID) {
+        var url = "/PrisustvoNaNastavi/Uredi?PrisustvoNaNastaviID=" + PrisustvoNaNastaviID;
+        $.get(url, function (d) {
+            $("#ajaxPrikaz").html(d);
+        })
+    }
+    function PrisustvoNaNastaviSnimi() {
+        //var form = $("#PrisustvoNaNastaviSnimi");
+        //var url = "/PrisustvoNaNastavi/Snimi";
+        //$.ajax({
+        //    type: "POST",
+        //    url: url,
+        //    data: form.serialize(),
+        //    success: function (data) { $("#ajaxPrikaz").html(data); }
+        //});
+        var form = $("#PrisustvoNaNastaviSnimi");
+        var url = "/PrisustvoNaNastavi/Snimi";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(),
+            success: function (data) {
+                alert("Uspjesno snimljeno");
+                $("#ajaxPrikaz").html(data);
+            }
+        });
+
+    }
+
+    function OcjenePrikaz(StudentID) {
+
+        var url = "/StudentOcjene/Prikaz?StudentID=" + StudentID;
+
+        var zahtjev = new XMLHttpRequest();
+        zahtjev.onload = function () {
+            if (zahtjev.status === 200) {
+                document.getElementById("ajaxPrikaz").innerHTML = zahtjev.responseText;
+            } else {
+
+            }
+        };
+
+        zahtjev.open("GET", url, true);
+        zahtjev.send();
+    }
+    
+    function OcjeneUredi(OcjenaID) {
+        var url = "/StudentOcjene/Uredi?OcjenaID=" + OcjenaID;
+        $.get(url, function (d) {
+            $("#ajaxPrikaz").html(d);
+        })
+    }
+
+    function OcjeneSnimi() {
+        var form = $("#OcjenaForma");
+        var url = "/StudentOcjene/Snimi";
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: form.serialize(),
+            success: function (data) {
+                alert("Uspjesno snimljeno");
+                $("#ajaxPrikaz").html(data);
+            }
+        });
+    }
+   
+</script>
+
+

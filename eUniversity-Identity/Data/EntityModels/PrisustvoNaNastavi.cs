@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Vjezba21102020.EntityModels;
 
-namespace podaci.EntityModels
+namespace Data.EntityModels
 {
     public class PrisustvoNaNastavi
     {

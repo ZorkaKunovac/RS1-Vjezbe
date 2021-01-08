@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Vjezba21102020.EntityModels
+namespace Data.EntityModels
 {
     public class Opstina
     {

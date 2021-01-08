@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace podaci.EntityModels
+namespace Data.EntityModels
 {
     public class KorisnickiNalog
     {
