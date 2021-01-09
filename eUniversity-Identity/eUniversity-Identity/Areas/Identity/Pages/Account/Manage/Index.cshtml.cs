@@ -36,6 +36,8 @@ namespace eUniversity_Identity.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            public string Ime { get; set; }
+            public string Prezime { get; set; }
         }
 
         private async Task LoadAsync(Korisnik user)
@@ -47,7 +49,9 @@ namespace eUniversity_Identity.Areas.Identity.Pages.Account.Manage
 
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                Ime = user.Ime,
+                Prezime = user.Prezime
             };
         }
 
@@ -87,6 +91,10 @@ namespace eUniversity_Identity.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
+
+            user.Ime = Input.Ime;
+            user.Prezime = Input.Prezime;
+            await _userManager.UpdateAsync(user);
 
             await _signInManager.RefreshSignInAsync(user);
             StatusMessage = "Your profile has been updated";

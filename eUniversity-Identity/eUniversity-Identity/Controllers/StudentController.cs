@@ -6,6 +6,7 @@ using Data.EntityModels;
 using eUniversity_Identity.Models;
 using eUniversity_Identity.Data;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace eUniversity_Identity.Controllers
 {
@@ -92,7 +93,7 @@ namespace eUniversity_Identity.Controllers
             //if (HttpContext.GetLogiraniKorisnik() == null)
             //    return Redirect("/Autentifikacija/Index");
 
-            Student s = db.Student.Find(StudentID);
+            Student s = db.Student.Include(s => s.Korisnik).Single(s => s.ID == StudentID);
 
             var OcjenaZaBrisati = db.Ocjene.Where(o => o.StudentID == s.ID).ToList();
             var PrisustvoZaBrisati = db.PrisustvoNaNastavi.Where(o => o.StudentID == s.ID).ToList();

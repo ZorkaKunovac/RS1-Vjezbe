@@ -9,6 +9,7 @@ using eUniversity_Identity.Models;
 using Microsoft.AspNetCore.Identity;
 using Data.EntityModels;
 using eUniversity_Identity.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eUniversity_Identity.Controllers
 {
@@ -23,7 +24,9 @@ namespace eUniversity_Identity.Controllers
             _userManager = userManager;
             _db = db;
         }
-        public IActionResult Index()
+
+        [Authorize]
+         public IActionResult Index()
         {
             //if (HttpContext.GetLogiraniKorisnik() == null)
             //    return Redirect("/Autentifikacija/Index");

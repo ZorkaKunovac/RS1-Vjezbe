@@ -40,7 +40,6 @@ namespace eUniversity_Identity.Data
                 ;
         }
         public DbSet<Opstina> Opstina { get; set; }
-        public DbSet<Korisnik> Korisnik { get; set; }
         public DbSet<Student> Student { get; set; }
 
         public DbSet<Ocjene> Ocjene { get; set; }
