@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace eUniversity_Identity.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext<Korisnik>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
