@@ -14,5 +14,8 @@ namespace Data.EntityModels
         public Opstina OpstinaPrebivalista { get; set; }
         public int OpstinaRodjenjaID { get; set; }
         public Opstina OpstinaRodjenja { get; set; }
+
+        public string KorisnikID { get; set; }
+        public Korisnik Korisnik { get; internal set; }
     }
 }
